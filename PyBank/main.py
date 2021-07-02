@@ -10,4 +10,30 @@ with open (csvpath) as csvfile:
 
         #read header first
         csv_header = next(csvreader)
+
+        #counting months
+        months = 0
+
+        #net amount of profit/loss
+        net = 0
+
+        for row in csvreader:
+            months += 1
+            net += int(row[1])
+            
+
+
+        average = net/months
+
         
+
+
+
+
+
+
+
+#making and exporting a txt file with results
+txtresults = os.path.join("Analysis", "results.txt")
+with open(txtresults, 'w+') as txtfile:
+      txtfile.write("Financial Analysis \n ---------------------------- \n" + ) 
