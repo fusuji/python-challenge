@@ -6,7 +6,7 @@ import csv
 csvpath = os.path.join("PyBank", "Resources", "budget_data.csv")
 
 #opening csv file
-with open (csvpath) as csvfile:
+with open(csvpath) as csvfile:
         csvreader = csv.reader(csvfile, delimiter = ',')
 
         #read header first
