@@ -37,10 +37,21 @@ with open(csvpath) as csvfile:
         
         #calculating percentage 
         for vote in candivotes:
-            percent = round((vote/total) * 100, 3)
+            percent = (vote/total) * 100
             percentage.append(percent)
-
+        roundpercentage = ['%.3f' % elem for elem in percentage]
+        
         #calculating winner
         maximum = max(candivotes)
         index = candivotes.index(maximum)
         winner = candidates[index]
+
+print("Election Results")
+print("-------------------------------")
+print(f"Total Votes: {str(total)}")
+print("-------------------------------")
+for candidate in range(len(candidates)):
+    print(f"{candidates[candidate]}: {str(roundpercentage[candidate])}% ({str(candivotes[candidate])})")
+print("-------------------------------")
+print(f"Winner: {winner}")
+print("-------------------------------")
