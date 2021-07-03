@@ -66,8 +66,8 @@ with open(txtresults, 'w+') as txtfile:
     txtfile.write(f"{line1} \n {line2} \n {line3} \n {line4} \n")
     for candidate in range(len(candidates)):
         lines = str(f"{candidates[candidate]}: {str(roundpercentage[candidate])}% ({str(candivotes[candidate])})")
-        txtfile.write(f"{lines}")
+        txtfile.write(f"{lines} \n")
     line9 = "-------------------------------"
     line10 = str(f"Winner: {winner}")
     line11 = "------------------------------"
-    txtfile.write(f"\n {line9} \n {line10} \n {line11}")
+    txtfile.write(f"{line9} \n {line10} \n {line11}")
