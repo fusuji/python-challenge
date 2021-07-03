@@ -40,7 +40,7 @@ with open(csvpath) as csvfile:
             percent = (vote/total) * 100
             percentage.append(percent)
         roundpercentage = ['%.3f' % elem for elem in percentage]
-        
+
         #calculating winner
         maximum = max(candivotes)
         index = candivotes.index(maximum)
@@ -55,3 +55,19 @@ for candidate in range(len(candidates)):
 print("-------------------------------")
 print(f"Winner: {winner}")
 print("-------------------------------")
+
+#export text file
+txtresults = os.path.join("PyPoll", "Analysis", "results.txt")
+with open(txtresults, 'w+') as txtfile:
+    line1 = "Election Results"
+    line2 = "-------------------------------"
+    line3 = str(f"Total Votes: {str(total)}")
+    line4 = "-------------------------------"
+    txtfile.write(f"{line1} \n {line2} \n {line3} \n {line4} \n")
+    for candidate in range(len(candidates)):
+        lines = str(f"{candidates[candidate]}: {str(roundpercentage[candidate])}% ({str(candivotes[candidate])})")
+        txtfile.write(f"{lines}")
+    line9 = "-------------------------------"
+    line10 = str(f"Winner: {winner}")
+    line11 = "------------------------------"
+    txtfile.write(f"\n {line9} \n {line10} \n {line11}")
